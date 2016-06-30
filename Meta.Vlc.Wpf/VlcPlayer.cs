@@ -471,7 +471,13 @@ namespace Meta.Vlc.Wpf
             if (VlcMediaPlayer == null)
                 throw new InvalidOperationException("VlcMediaPlayer doesn't have initialize.");
 
-            if (VlcMediaPlayer.Media != null) VlcMediaPlayer.Media.Dispose();
+            var media = VlcMediaPlayer.Media;
+
+            if (media != null)
+            {
+                media.Dispose();
+                VlcMediaPlayer.Media = null;
+            }
 
             if (_context != null)
             {
