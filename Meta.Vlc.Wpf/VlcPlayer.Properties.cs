@@ -23,7 +23,7 @@ namespace Meta.Vlc.Wpf
             get { return VlcMediaPlayer.DefaultValueWhenNull(x => x.Position.DefaultValueWhenTrue(_isStopping)); }
             set
             {
-                if (Position == value || VlcMediaPlayer == null || !IsSeekable) return;
+                if (VlcMediaPlayer == null || !IsSeekable) return;
                 VlcMediaPlayer.Position = value;
             }
         }
