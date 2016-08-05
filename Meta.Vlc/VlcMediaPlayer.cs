@@ -568,7 +568,12 @@ namespace Meta.Vlc
         /// </summary>
         public bool IsPlaying
         {
-            get { return _isPlayingFunction.Delegate(InstancePointer); }
+            get
+            {
+                if (InstancePointer != IntPtr.Zero)
+                    return _isPlayingFunction.Delegate(InstancePointer);
+                return false;
+            }
         }
 
         /// <summary>
@@ -947,7 +952,8 @@ namespace Meta.Vlc
         /// </summary>
         public void PauseOrResume()
         {
-            _setPauseFunction.Delegate(InstancePointer, IsPlaying);
+            if (InstancePointer != IntPtr.Zero)
+                _setPauseFunction.Delegate(InstancePointer, IsPlaying);
         }
 
         /// <summary>
