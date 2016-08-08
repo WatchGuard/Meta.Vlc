@@ -666,7 +666,11 @@ namespace Meta.Vlc
         public float Rate
         {
             get { return _getRateFunction.Delegate(InstancePointer); }
-            set { _setRateFunction.Delegate(InstancePointer, value); }
+            set
+            {
+                if (InstancePointer != IntPtr.Zero)
+                    _setRateFunction.Delegate(InstancePointer, value);
+            }
         }
 
         /// <summary>
@@ -928,7 +932,8 @@ namespace Meta.Vlc
         /// <param name="pause">true 代表暂停,false 代表播放或继续</param>
         public void SetPause(bool pause)
         {
-            _setPauseFunction.Delegate(InstancePointer, pause);
+            if (InstancePointer != IntPtr.Zero)
+                _setPauseFunction.Delegate(InstancePointer, pause);
         }
 
         /// <summary>
@@ -936,7 +941,8 @@ namespace Meta.Vlc
         /// </summary>
         public void Pause()
         {
-            _setPauseFunction.Delegate(InstancePointer, true);
+            if (InstancePointer != IntPtr.Zero)
+                _setPauseFunction.Delegate(InstancePointer, true);
         }
 
         /// <summary>
@@ -944,7 +950,8 @@ namespace Meta.Vlc
         /// </summary>
         public void Resume()
         {
-            _setPauseFunction.Delegate(InstancePointer, false);
+            if (InstancePointer != IntPtr.Zero)
+                _setPauseFunction.Delegate(InstancePointer, false);
         }
 
         /// <summary>
@@ -961,7 +968,8 @@ namespace Meta.Vlc
         /// </summary>
         public void Stop()
         {
-            _stopFunction.Delegate(InstancePointer);
+            if (InstancePointer != IntPtr.Zero)
+                _stopFunction.Delegate(InstancePointer);
         }
 
         /// <summary>
