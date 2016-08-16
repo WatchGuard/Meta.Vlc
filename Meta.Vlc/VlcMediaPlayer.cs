@@ -830,6 +830,12 @@ namespace Meta.Vlc
             get { return _getSubtitleFunction.Delegate.Invoke(InstancePointer); }
             set { _setSubtitleFunction.Delegate.Invoke(InstancePointer, value); }
         }
+
+        public int SetSubtitle(int subtitleTrackId)
+        {
+            return _setSubtitleFunction.Delegate.Invoke(InstancePointer, subtitleTrackId);
+        }
+
         public int SubtitleCount
         {
             get { return _getSubtitleCountFunction.Delegate.Invoke(InstancePointer); }
