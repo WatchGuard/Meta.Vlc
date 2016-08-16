@@ -822,6 +822,12 @@ namespace Meta.Vlc
             get { return _getSubtitleFunction.Delegate.Invoke(InstancePointer); }
             set { _setSubtitleFunction.Delegate.Invoke(InstancePointer, value); }
         }
+
+        public int SetSubtitle(int subtitleTrackId)
+        {
+            return _setSubtitleFunction.Delegate.Invoke(InstancePointer, subtitleTrackId);
+        }
+
         public int SubtitleCount
         {
             get { return _getSubtitleCountFunction.Delegate.Invoke(InstancePointer); }
@@ -833,9 +839,9 @@ namespace Meta.Vlc
             set { _setSubtitleDelayFunction.Delegate.Invoke(InstancePointer, value); }
         }
 
-        public TrackDescription SubtitleDescription
+        public TrackDescriptionList SubtitleTrackDescriptions
         {
-            get { return new TrackDescription(_getSubtitleDescriptionFunction.Delegate(InstancePointer)); }
+            get { return new TrackDescriptionList(_getSubtitleDescriptionFunction.Delegate(InstancePointer)); }
         }
 
         public bool IsAdjustEnable
