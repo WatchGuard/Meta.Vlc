@@ -211,7 +211,7 @@ namespace Meta.Vlc.Wpf
         {
             if (_disposing || _isStopping) return;
 
-            Debug.WriteLine(String.Format("StateChanged : {0}", e.Value.NewState));
+            //Debug.WriteLine(String.Format("StateChanged : {0}", e.Value.NewState));
 
             Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
              {
@@ -247,9 +247,9 @@ namespace Meta.Vlc.Wpf
                     if (Math.Abs(scale.Width - 1.0) + Math.Abs(scale.Height - 1.0) > 0.0000001)
                     {
                         _context.IsAspectRatioChecked = true;
-                        Debug.WriteLine(String.Format("Scale:{0}x{1}", scale.Width, scale.Height));
-                        Debug.WriteLine(String.Format("Resize Image to {0}x{1}", _context.DisplayWidth,
-                            _context.DisplayHeight));
+                        //Debug.WriteLine(String.Format("Scale:{0}x{1}", scale.Width, scale.Height));
+                        //Debug.WriteLine(String.Format("Resize Image to {0}x{1}", _context.DisplayWidth,
+                        //    _context.DisplayHeight));
                     }
                     else
                     {
@@ -329,7 +329,7 @@ namespace Meta.Vlc.Wpf
         private uint VideoFormatCallback(ref IntPtr opaque, ref uint chroma, ref uint width, ref uint height,
             ref uint pitches, ref uint lines)
         {
-            Debug.WriteLine(String.Format("Initialize Video Content : {0}x{1}", width, height));
+            //Debug.WriteLine(String.Format("Initialize Video Content : {0}x{1}", width, height));
             if (_context == null)
             {
                 uint tmpWidth = width;
