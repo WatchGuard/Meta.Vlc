@@ -114,7 +114,7 @@ namespace Meta.Vlc.Wpf
             {
                 if (track.SarNum == 0 || track.SarDen == 0) return;
 
-                Debug.WriteLine(String.Format("Video Size:{0}x{1}\r\nSAR:{2}/{3}", track.Width, track.Height, track.SarNum, track.SarDen));
+                //Debug.WriteLine(String.Format("Video Size:{0}x{1}\r\nSAR:{2}/{3}", track.Width, track.Height, track.SarNum, track.SarDen));
 
                 var sar = 1.0*track.SarNum/track.SarDen;
                 if (sar > 1)
